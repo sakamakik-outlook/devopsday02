@@ -37,7 +37,7 @@ public class AzureHello {
             .buildProcessorClient();
 
     public static String sendMessages() {
-        var now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();
         List<ServiceBusMessage> messages = Arrays.asList(
                 new ServiceBusMessage("Hello world @" + now.format(formatter)).setMessageId("1"),
                 new ServiceBusMessage("Bonjour @" + now.format(formatter)).setMessageId("2"));
@@ -55,7 +55,7 @@ public class AzureHello {
             e.printStackTrace();
         }
         receiverClient.close();
-        var result = "Read messages " + messages;
+        String result = "Read messages " + messages;
         messages.clear();
         return result;
     }
