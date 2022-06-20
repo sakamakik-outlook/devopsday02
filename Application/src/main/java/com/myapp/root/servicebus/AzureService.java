@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Component
-public class AzureHello {
+public class AzureService {
 
     static final String connectionString = "Endpoint=sb://kensaka.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NxERT1IBvapMNvShfXtBPaLhqlMIRZJQzfJbD/lnVag=";
     static final String queueName = "test01";
@@ -32,8 +32,8 @@ public class AzureHello {
             .connectionString("Endpoint=sb://kensaka.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=NxERT1IBvapMNvShfXtBPaLhqlMIRZJQzfJbD/lnVag=")
             .processor()
             .queueName(queueName)
-            .processMessage(AzureHello::processMessage)
-            .processError(AzureHello::processError)
+            .processMessage(AzureService::processMessage)
+            .processError(AzureService::processError)
             .buildProcessorClient();
 
     public static String sendMessages() {

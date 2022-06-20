@@ -1,6 +1,6 @@
 package com.myapp.root.controllers;
 
-import com.myapp.root.servicebus.AzureHello;
+import com.myapp.root.servicebus.AzureService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,13 +16,13 @@ public class MyAppController {
     @ResponseBody
     @RequestMapping("/send")
     public String send() {
-        return AzureHello.sendMessages();
+        return AzureService.sendMessages();
     }
 
     @ResponseBody
     @RequestMapping("/receive")
     public String receive() {
-        return AzureHello.receiveMessages();
+        return AzureService.receiveMessages();
     }
 
 
